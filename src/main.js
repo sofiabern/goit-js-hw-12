@@ -26,6 +26,10 @@ function loaderToggle() {
   loaderEl.classList.toggle('hidden');
 }
 
+function loadBtnHide(){
+  loadBtn.classList.add("hidden")
+}
+
 function updateLoadBtnVisibility() {
   if (renderedHits < totalHits) {
     loadBtn.classList.remove('hidden');
@@ -74,6 +78,7 @@ async function getPhotoFromAPI(query, page) {
       showError(
         'Sorry, there are no images matching your search query. Please try again!'
       );
+     loadBtnHide()
       return;
     }
     gallery.insertAdjacentHTML('beforeend', createMarkup(data.hits));
@@ -118,7 +123,7 @@ function loadMoreHandler() {
   renderedHits += 15;
 
   loaderToggle();
-  
+
   galleryCard = document.querySelector('.gallery-item');
   getPhotoFromAPI(currentQuery, currentPage).then(()=>{
    
