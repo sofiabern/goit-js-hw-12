@@ -49,6 +49,7 @@ function cleanGallery() {
 }
 
 function smoothScroll(){
+  galleryCard = document.querySelector('.gallery-item');
   const cardHeight = galleryCard.getBoundingClientRect().height;
   window.scrollBy({
     top: 3 * cardHeight, 
@@ -124,7 +125,7 @@ function loadMoreHandler() {
 
   loaderToggle();
 
-  galleryCard = document.querySelector('.gallery-item');
+  
   getPhotoFromAPI(currentQuery, currentPage).then(()=>{
    
     smoothScroll()
