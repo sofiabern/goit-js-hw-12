@@ -98,6 +98,8 @@ formEl.addEventListener('submit', searchHandler);
 function searchHandler(evt) {
   evt.preventDefault();
 
+  resetForPagination()
+  loadBtnHide()
   cleanGallery();
   loaderToggle();
 
